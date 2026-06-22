@@ -1,0 +1,67 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  password      String
+  createdAt     DateTime       @default(now())
+  savedColleges SavedCollege[]
+}
+
+model College {
+  id            String         @id @default(uuid())
+  name          String
+  location      String
+  description   String         @db.Text
+  fees          Float
+  rating        Float
+  imageUrl      String
+  createdAt     DateTime       @default(now())
+  courses       Course[]
+  placements    Placement[]
+  reviews       Review[]
+  savedColleges SavedCollege[]
+}
+
+model Course {
+  id         String   @id @default(uuid())
+  name       String
+  duration   String   // e.g. "4 Years", "2 Years"
+  collegeId  String
+  college    College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model Placement {
+  id             String   @id @default(uuid())
+  avgPackage     Float    // in LPA
+  highestPackage Float    // in LPA
+  collegeId      String
+  college        College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  rating     Float
+  comment    String   @db.Text
+  userName   String
+  collegeId  String
+  college    College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model SavedCollege {
+  id        String   @id @default(uuid())
+  userId    String
+  collegeId String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college   College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, collegeId])
+}

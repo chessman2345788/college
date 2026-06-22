@@ -1,0 +1,221 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .theme {
+
+    --font-heading: var(--font-sans);
+
+    --font-sans: var(--font-sans)
+  }
+  :root {
+
+    --background: rgb(255, 255, 255);
+
+    --foreground: rgb(10, 10, 10);
+
+    --card: rgb(255, 255, 255);
+
+    --card-foreground: rgb(10, 10, 10);
+
+    --popover: rgb(255, 255, 255);
+
+    --popover-foreground: rgb(10, 10, 10);
+
+    --primary: rgb(23, 23, 23);
+
+    --primary-foreground: rgb(250, 250, 250);
+
+    --secondary: oklch(0.97 0 0);
+
+    --secondary-foreground: rgb(23, 23, 23);
+
+    --muted: rgb(245, 245, 245);
+
+    --muted-foreground: rgb(115, 115, 115);
+
+    --accent: rgb(245, 245, 245);
+
+    --accent-foreground: rgb(23, 23, 23);
+
+    --destructive: rgb(231, 0, 11);
+
+    --border: rgb(229, 229, 229);
+
+    --input: rgb(229, 229, 229);
+
+    --ring: rgb(161, 161, 161);
+
+    --chart-1: rgb(212, 212, 212);
+
+    --chart-2: rgb(115, 115, 115);
+
+    --chart-3: rgb(82, 82, 82);
+
+    --chart-4: oklch(0.371 0 0);
+
+    --chart-5: rgb(38, 38, 38);
+
+    --radius: 0.625rem;
+
+    --sidebar: rgb(250, 250, 250);
+
+    --sidebar-foreground: rgb(10, 10, 10);
+
+    --sidebar-primary: rgb(23, 23, 23);
+
+    --sidebar-primary-foreground: rgb(250, 250, 250);
+
+    --sidebar-accent: rgb(245, 245, 245);
+
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+
+    --sidebar-border: oklch(0.922 0 0);
+
+    --sidebar-ring: oklch(0.708 0 0)
+  }
+  .dark {
+
+    --background: rgb(10, 10, 10);
+
+    --foreground: rgb(250, 250, 250);
+
+    --card: rgb(23, 23, 23);
+
+    --card-foreground: rgb(250, 250, 250);
+
+    --popover: rgb(23, 23, 23);
+
+    --popover-foreground: rgb(250, 250, 250);
+
+    --primary: rgb(229, 229, 229);
+
+    --primary-foreground: rgb(23, 23, 23);
+
+    --secondary: rgb(38, 38, 38);
+
+    --secondary-foreground: rgb(250, 250, 250);
+
+    --muted: rgb(38, 38, 38);
+
+    --muted-foreground: rgb(161, 161, 161);
+
+    --accent: rgb(38, 38, 38);
+
+    --accent-foreground: rgb(250, 250, 250);
+
+    --destructive: rgb(255, 100, 103);
+
+    --border: rgba(255, 255, 255, 0.1);
+
+    --input: rgba(255, 255, 255, 0.15);
+
+    --ring: rgb(115, 115, 115);
+
+    --chart-1: rgb(212, 212, 212);
+
+    --chart-2: rgb(115, 115, 115);
+
+    --chart-3: rgb(82, 82, 82);
+
+    --chart-4: rgb(64, 64, 64);
+
+    --chart-5: rgb(38, 38, 38);
+
+    --sidebar: rgb(23, 23, 23);
+
+    --sidebar-foreground: rgb(250, 250, 250);
+
+    --sidebar-primary: rgb(20, 71, 230);
+
+    --sidebar-primary-foreground: rgb(250, 250, 250);
+
+    --sidebar-accent: rgb(38, 38, 38);
+
+    --sidebar-accent-foreground: rgb(250, 250, 250);
+
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+
+    --sidebar-ring: oklch(0.556 0 0)
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased min-h-screen selection:bg-indigo-500 selection:text-white;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+}
+
+/* Premium Custom Styles */
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .dark .glassmorphism {
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 0%, rgba(168, 85, 247, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+  }
+
+  .dark .gradient-bg {
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+      radial-gradient(at 50% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+  }
+}
+
+/* Custom Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-800 rounded-full hover:bg-zinc-400 dark:hover:bg-zinc-700 transition-colors;
+}
+
+/* Micro-animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

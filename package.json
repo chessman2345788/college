@@ -9,7 +9,6 @@
     "lint": "next lint",
     "postinstall": "prisma generate"
   },
-
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@prisma/client": "^5.22.0",
@@ -17,7 +16,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.21.0",
-    "next": "15.0.3",
+    "next": "15.0.7",
     "next-auth": "^4.24.14",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
